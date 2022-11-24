@@ -7,6 +7,7 @@ const URL_PHOTOS =
 
 function ContextProvider({ children }) {
 	const [photos, setPhotos] = useState([]);
+	const [cartItems, setCartItems] = useState([]);
 
 	useEffect(() => {
 		fetch(URL_PHOTOS)
@@ -31,10 +32,18 @@ function ContextProvider({ children }) {
 		});
 	};
 
-	console.log(photos);
+	const addImageToCart = (image) => {
+		const itemToAdd = image;
+
+		setCartItems((previousCart) => [...previousCart, itemToAdd]);
+	};
+
+	console.log(cartItems);
 
 	return (
-		<Context.Provider value={{ photos, toggleFavorite }}>
+		<Context.Provider
+			value={{ photos, toggleFavorite, cartItems, addImageToCart }}
+		>
 			{children}
 		</Context.Provider>
 	);
