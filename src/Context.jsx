@@ -12,7 +12,7 @@ function ContextProvider({ children }) {
 		fetch(URL_PHOTOS)
 			.then((res) => res.json())
 			.then((data) => setPhotos(data));
-	}, [photos]);
+	}, []);
 
 	return <Context.Provider value={{ photos }}>{children}</Context.Provider>;
 }
