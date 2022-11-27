@@ -33,10 +33,12 @@ function Cart() {
 				})}
 			</p>
 			<div className='order-button'>
-				{cartItems.length > 0 && (
+				{cartItems.length > 0 ? (
 					<button onClick={orderItems}>
 						{isCheckout ? 'Ordering...' : 'Place Order'}
 					</button>
+				) : (
+					<p>No items in your cart.</p>
 				)}
 			</div>
 		</main>
